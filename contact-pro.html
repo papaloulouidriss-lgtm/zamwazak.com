@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Wyssam Housseine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1a1a1a;
+            --color-secondary: #4a4a4a;
+            --color-accent: #d97706;
+            --color-bg: #fafafa;
+            --color-surface: #ffffff;
+            --color-border: #e5e5e5;
+            --font-display: 'DM Serif Display', serif;
+            --font-body: 'Work Sans', sans-serif;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg);
+            color: var(--color-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            padding: 1.5rem 0;
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: normal;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+        
+        nav a {
+            color: var(--color-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--color-accent);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .contact {
+            margin-top: 80px;
+            padding: var(--spacing-xl) 0;
+            min-height: calc(100vh - 160px);
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .contact-title {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-primary);
+        }
+        
+        .contact-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-secondary);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .contact-questions {
+            background: var(--color-surface);
+            border-left: 4px solid var(--color-accent);
+            padding: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .contact-questions h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-primary);
+        }
+        
+        .contact-questions ul {
+            list-style: none;
+        }
+        
+        .contact-questions li {
+            padding: 0.5rem 0;
+            color: var(--color-secondary);
+        }
+        
+        .contact-info {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .contact-methods {
+            display: flex;
+            gap: var(--spacing-lg);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .contact-method {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        .contact-method-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+        
+        .contact-method-value {
+            font-size: 1.1rem;
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+        
+        .contact-method a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-method a:hover {
+            color: var(--color-accent);
+        }
+        
+        .commitment {
+            background: #fef3c7;
+            border-left: 4px solid var(--color-accent);
+            padding: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .commitment p {
+            color: var(--color-primary);
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        footer {
+            background: var(--color-primary);
+            color: white;
+            padding: var(--spacing-md) 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+            }
+            
+            .contact-title {
+                font-size: 2rem;
+            }
+            
+            .contact-methods {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index-pro.html" class="logo">Wyssam Housseine</a>
+            <ul>
+                <li><a href="index-pro.html">Accueil</a></li>
+                <li><a href="interventions-pro.html">Interventions</a></li>
+                <li><a href="realisations-pro.html">Réalisations</a></li>
+                <li><a href="experience-pro.html">Expérience</a></li>
+                <li><a href="contact-pro.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h1 class="contact-title">Premier échange</h1>
+                
+                <p class="contact-description">
+                    Décrivez brièvement votre situation. Je vous indique rapidement si une intervention est pertinente et sous quel format.
+                </p>
+                
+                <div class="contact-questions">
+                    <h3>Questions simples à me communiquer :</h3>
+                    <ul>
+                        <li>• Type d'activité / site</li>
+                        <li>• Problème principal rencontré</li>
+                        <li>• Niveau d'urgence</li>
+                    </ul>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <span class="contact-method-label">Email</span>
+                            <span class="contact-method-value">
+                                <a href="mailto:contact@zamwazak.com">contact@zamwazak.com</a>
+                            </span>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <span class="contact-method-label">Téléphone</span>
+                            <span class="contact-method-value">
+                                <a href="tel:+33651673850">+33 6 51 67 38 50</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="commitment">
+                    <p>
+                        <strong>Engagement :</strong> Réponse sous 24h. Si je ne suis pas la bonne personne, je vous le dirai directement.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Wyssam Housseine. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>

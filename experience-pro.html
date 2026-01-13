@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expérience - Wyssam Housseine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1a1a1a;
+            --color-secondary: #4a4a4a;
+            --color-accent: #d97706;
+            --color-bg: #fafafa;
+            --color-surface: #ffffff;
+            --color-border: #e5e5e5;
+            --font-display: 'DM Serif Display', serif;
+            --font-body: 'Work Sans', sans-serif;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg);
+            color: var(--color-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            padding: 1.5rem 0;
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: normal;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+        
+        nav a {
+            color: var(--color-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover { color: var(--color-accent); }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after { width: 100%; }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .page-header {
+            margin-top: 80px;
+            padding: var(--spacing-xl) 0 var(--spacing-lg);
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .page-title {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-primary);
+        }
+        
+        .page-intro {
+            font-size: 1.1rem;
+            color: var(--color-secondary);
+            max-width: 700px;
+            line-height: 1.8;
+        }
+        
+        .capabilities {
+            padding: var(--spacing-lg) 0;
+        }
+        
+        .capabilities-list {
+            list-style: none;
+        }
+        
+        .capabilities-list li {
+            padding: 1.25rem 0 1.25rem 2rem;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 1.1rem;
+            color: var(--color-secondary);
+            position: relative;
+        }
+        
+        .capabilities-list li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+        
+        .references {
+            padding: var(--spacing-lg) 0;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            border-top: 1px solid var(--color-border);
+        }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-primary);
+        }
+        
+        .references-list {
+            list-style: none;
+        }
+        
+        .references-list li {
+            padding: 1rem 0 1rem 2rem;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 1rem;
+            color: var(--color-secondary);
+            position: relative;
+        }
+        
+        .references-list li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+        
+        footer {
+            background: var(--color-primary);
+            color: white;
+            padding: var(--spacing-md) 0;
+            margin-top: var(--spacing-xl);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul { gap: 1.5rem; }
+            .page-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index-pro.html" class="logo">Wyssam Housseine</a>
+            <ul>
+                <li><a href="index-pro.html">Accueil</a></li>
+                <li><a href="interventions-pro.html">Interventions</a></li>
+                <li><a href="realisations-pro.html">Réalisations</a></li>
+                <li><a href="experience-pro.html">Expérience</a></li>
+                <li><a href="contact-pro.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Ce que j'ai appris du terrain</h1>
+            <p class="page-intro">
+                Plutôt qu'un parcours chronologique, voici les capacités opérationnelles construites au fil de mes expériences :
+            </p>
+        </div>
+    </section>
+
+    <section class="capabilities">
+        <div class="container">
+            <ul class="capabilities-list">
+                <li>Pilotage d'exploitations critiques à volumétrie élevée</li>
+                <li>Gestion d'équipes jusqu'à 120 collaborateurs</li>
+                <li>Organisation flux froid / pharmaceutique sous exigences GDP</li>
+                <li>Structuration transport et sous-traitance</li>
+                <li>Mise en place routines et indicateurs simples</li>
+                <li>Transmission et stabilisation post-mission</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="references">
+        <div class="container">
+            <h2 class="section-title">Repères d'expérience</h2>
+            
+            <ul class="references-list">
+                <li>Direction d'agence logistique pharmaceutique — 1 800 exp/j</li>
+                <li>Pilotage camionnage et messagerie nationale</li>
+                <li>Lancement et redressement de sites</li>
+                <li>Déploiement d'outils TMS et process qualité</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Wyssam Housseine. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>

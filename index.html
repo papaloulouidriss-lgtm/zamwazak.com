@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wyssam Housseine - Stabilisation Opérations Transport & Logistique</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1a1a1a;
+            --color-secondary: #4a4a4a;
+            --color-accent: #d97706;
+            --color-bg: #fafafa;
+            --color-surface: #ffffff;
+            --color-border: #e5e5e5;
+            --font-display: 'DM Serif Display', serif;
+            --font-body: 'Work Sans', sans-serif;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg);
+            color: var(--color-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            padding: 1.5rem 0;
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: normal;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+        
+        nav a {
+            color: var(--color-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--color-accent);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            margin-top: 80px;
+            padding: var(--spacing-xl) 0;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+        }
+        
+        .hero-subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-primary);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+        
+        .hero-tagline {
+            font-size: 1.1rem;
+            color: var(--color-secondary);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.8;
+            max-width: 800px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+        }
+        
+        .cta-group {
+            margin-top: var(--spacing-lg);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+        }
+        
+        .btn {
+            padding: 0.875rem 2rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-family: var(--font-body);
+        }
+        
+        .btn-primary {
+            background: var(--color-primary);
+            color: white;
+            border: 2px solid var(--color-primary);
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--color-primary);
+        }
+        
+        .formats {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-lg);
+            color: var(--color-primary);
+        }
+        
+        .formats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+        }
+        
+        .format-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            padding: var(--spacing-md);
+            position: relative;
+        }
+        
+        .format-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--color-accent);
+        }
+        
+        .format-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            padding-left: var(--spacing-md);
+            color: var(--color-primary);
+        }
+        
+        .format-card p {
+            padding-left: var(--spacing-md);
+            color: var(--color-secondary);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+        
+        .credibility {
+            background: #fef3c7;
+            border-left: 4px solid var(--color-accent);
+            padding: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .credibility p {
+            color: var(--color-primary);
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        footer {
+            background: var(--color-primary);
+            color: white;
+            padding: var(--spacing-md) 0;
+            margin-top: var(--spacing-xl);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 968px) {
+            .formats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index-pro.html" class="logo">Wyssam Housseine</a>
+            <ul>
+                <li><a href="index-pro.html">Accueil</a></li>
+                <li><a href="interventions-pro.html">Interventions</a></li>
+                <li><a href="realisations-pro.html">Réalisations</a></li>
+                <li><a href="experience-pro.html">Expérience</a></li>
+                <li><a href="contact-pro.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-subtitle">Froid • Conformité • Volumétrie • Continuité 24/7</div>
+                <h1>Stabilisation d'opérations transport & logistique en environnements critiques</h1>
+                <p class="hero-tagline">
+                    J'interviens directement sur le terrain pour remettre sous contrôle des exploitations en tension : retards récurrents, croissance non maîtrisée, exigences réglementaires, pression client ou audit imminent.
+                </p>
+                <p class="hero-tagline">
+                    Mon approche combine présence opérationnelle, routines simples et structuration progressive afin de rétablir une performance fiable et transmissible.
+                </p>
+                <div class="cta-group">
+                    <a href="contact-pro.html" class="btn btn-primary">Échanger sur votre situation</a>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--color-secondary); opacity: 0; animation: fadeInUp 0.8s ease 0.8s forwards;">
+                    Réponse sous 24h — échange sans engagement
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="formats">
+        <div class="container">
+            <h2 class="section-title">Formats d'intervention</h2>
+            
+            <div class="formats-grid">
+                <div class="format-card">
+                    <h3>Diagnostic Flash Terrain (48h)</h3>
+                    <p>Observation site • entretiens équipes • identification des 10 irritants majeurs • plan d'actions priorisé.</p>
+                </div>
+                
+                <div class="format-card">
+                    <h3>Stabilisation Express (10 jours)</h3>
+                    <p>Mise en place de routines quotidiennes • indicateurs simples • clarification des rôles • remise sous contrôle opérationnel.</p>
+                </div>
+                
+                <div class="format-card">
+                    <h3>Renfort Opérationnel (4 à 8 semaines)</h3>
+                    <p>Pilotage terrain • coordination équipes et prestataires • conformité • transmission des pratiques stabilisées.</p>
+                </div>
+            </div>
+            
+            <div class="credibility">
+                <p>Expérience de direction d'exploitation jusqu'à 1 800 expéditions/jour, 120 collaborateurs, environnement froid et pharmaceutique à exigences élevées.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Wyssam Housseine. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>
